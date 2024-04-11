@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+    int a[n];
+    double countMinus = 0;
+    double countPositive = 0;
+    double countZero = 0;
+    for(int i = 0; i < n; i++){
+        cin >> a[i];
+    }
+    for(int i = 0; i < n; i++){
+        if(a[i] > 0){
+            countPositive++;
+        }
+        else if(a[i] < 0){
+            countMinus++;
+        }
+        else{
+            countZero++;
+        }
+    }
+    double ratioMinus = countMinus/n;
+    double ratioPositive = countPositive/n;
+    double ratioZero = countZero/n;
+    cout << fixed << setprecision(6) << ratioPositive << endl << ratioMinus << endl << ratioZero;
+    
+    return 0;
+}
