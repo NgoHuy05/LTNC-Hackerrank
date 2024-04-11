@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+// string ltrim(const string &);
+// string rtrim(const string &);
+
+/*
+ * Complete the 'findDigits' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts INTEGER n as parameter.
+ */
+
+#include <iostream>
+
+using namespace std;
+
+int findDigits(int n) {
+    int count = 0;
+    int num = n;
+    while(num > 0){
+        int digit = num %10;
+        if(digit != 0 && n % digit == 0){
+            count++;
+        }
+        num = num/10;
+    }
+    return count;
+
+}
+int main(){
+    int a;
+    cin >> a;
+    int x[a];
+    for(int i = 0; i < a; i++){
+        cin >> x[i];
+    }
+    for(int i = 0; i < a; i++){
+        cout << findDigits(x[i]) << endl;
+    }
+    return 0;
+}
