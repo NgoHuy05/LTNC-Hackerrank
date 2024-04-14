@@ -6,13 +6,10 @@ string ltrim(const string &);
 string rtrim(const string &);
 vector<string> split(const string &);
 
-/*
- * Complete the 'equalizeArray' function below.
- *
- * The function is expected to return an INTEGER.
- * The function accepts INTEGER_ARRAY arr as parameter.
- */
-
+// ideal : tim tan suat so xuat hien nhieu nhat roi lay tong phan tu - di tan suat max
+// 5
+// 1 1 2 2 2
+// => output 5 - 3 = 2 
 int equalizeArray(vector<int> arr) {
     map<int,int> mp;
     for (int num : arr)
