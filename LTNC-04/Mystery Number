@@ -1,0 +1,43 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <map>
+#include <set>
+using namespace std;
+
+int main() {
+    int n; cin >> n;
+    vector<int> a(n), b(n+1);
+    int suma = 0, sumb = 0;
+    for(int i = 0; i < n; i++){
+        cin >> a[i];
+        suma += a[i];
+    }
+    for(int i = 0; i < n+1; i++){
+        cin >> b[i];
+        sumb += b[i];
+    }
+    cout << sumb - suma;
+//     set<int> se;
+//     for(int i = 0; i < n; i++){
+//         cin >> a[i];
+//         se.insert(a[i]);
+        
+//     }
+//     vector<int> b(n+1);
+//     for(int i = 0; i < n+1; i++){
+//         cin >> b[i];
+        
+//     }
+//     for(int i = 0; i < n+1; i++){
+//         if(se.find(b[i]) == se.end())
+//              cout << b[i];
+//     }
+//     /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+     return 0;
+ }
