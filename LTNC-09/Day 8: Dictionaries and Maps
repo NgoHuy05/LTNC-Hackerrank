@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+#include <unordered_map>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n; // Number of entries in the phone book
+
+    unordered_map<string, string> phone_book;
+
+    // Read each entry and populate the phone book map
+    for (int i = 0; i < n; i++) {
+        string name, phone;
+        cin >> name >> phone;
+        phone_book[name] = phone;
+    }
+
+    // Process queries until the end of input
+    string query;
+    while (cin >> query) {
+        if (phone_book.find(query) != phone_book.end()) {
+            // Name found in phone book
+            cout << query << "=" << phone_book[query] << endl;
+        } else {
+            // Name not found in phone book
+            cout << "Not found" << endl;
+        }
+    }
+
+    return 0;
+}
