@@ -1,0 +1,31 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    int q;cin >> q;
+    cin.ignore();
+    while(q--){
+        
+        string s;
+        
+        getline(cin,s);
+        string resl ="";
+        string resc ="";
+        for(int i = 0; i < s.size(); i++){
+            if(i % 2 == 0){
+                resc += s[i];
+            }
+            else{
+                resl += s[i];
+            }  
+        }
+        cout << resc << " " << resl << endl;
+    }
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
