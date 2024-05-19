@@ -1,39 +1,102 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-struct node{
-    int data;
-    struct node* next;
+
+class SinglyLinkedListNode {
+    public:
+        int data;
+        SinglyLinkedListNode *next;
+
+        SinglyLinkedListNode(int node_data) {
+            this->data = node_data;
+            this->next = nullptr;
+        }
 };
 
-node *makeNode(int x){
-    node* newNode = (node*)malloc(sizeof(node));
-    newNode->data = x;
-    newNode->next = NULL;
-    return newNode;
+class SinglyLinkedList {
+    public:
+        SinglyLinkedListNode *head;
+
+        SinglyLinkedList() {
+            this->head = nullptr;
+        }
+
+};
+
+void print_singly_linked_list(SinglyLinkedListNode* node, string sep, ofstream& fout) {
+    while (node) {
+        fout << node->data;
+
+        node = node->next;
+
+        if (node) {
+            fout << sep;
+        }
+    }
 }
 
-void pushBack(node **head,int x){
-    node* newNode = makeNode(x);
-    node *tmp =(*head);
-    while(tmp->next != NULL){
-        tmp = tmp->next;
+void free_singly_linked_list(SinglyLinkedListNode* node) {
+    while (node) {
+        SinglyLinkedListNode* temp = node;
+        node = node->next;
+
+        free(temp);
     }
-    tmp->next = newNode;
-
-
 }
-void duyet(node* head){
-    while(head != NULL){
-        cout << head->data << " ";
-        head = head->next;
-    }
+
+// Complete the insertNodeAtTail function below.
+
+/*
+ * For your reference:
+ *
+ * SinglyLinkedListNode {
+ *     int data;
+ *     SinglyLinkedListNode* next;
+ * };
+ *
+ */
+SinglyLinkedListNode* insertNodeAtTail(SinglyLinkedListNode*& head, int data) {
+        SinglyLinkedListNode* NewNode = new SinglyLinkedListNode(data);
+        if(head == nullptr){
+            head = NewNode;
+            return head;
+        }
+        else{
+        SinglyLinkedListNode* temp = head;
+        while(temp->next){
+            temp = temp->next;
+        }
+         temp->next = NewNode;
+        
+    return head;
+        }
 }
 
 int main()
 {
-    node* head = NULL;
-    int x;cin >>x;
-    pushBack(&head,x);      
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    SinglyLinkedList* llist = new SinglyLinkedList();
+
+    int llist_count;
+    cin >> llist_count;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    for (int i = 0; i < llist_count; i++) {
+        int llist_item;
+        cin >> llist_item;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    
+      	SinglyLinkedListNode* llist_head = insertNodeAtTail(llist->head, llist_item);
+        llist->head = llist_head;
+    }
+
+    print_singly_linked_list(llist->head, "\n", fout);
+    fout << "\n";
+
+    free_singly_linked_list(llist->head);
+
+    fout.close();
+
     return 0;
 }
